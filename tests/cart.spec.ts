@@ -69,3 +69,13 @@ test("The cart icon should be empty after removing all items", async () => {
   }
   await expect(inventoryPage.cartCounter()).not.toBeVisible();
 });
+
+test("Verify the 'Add to Cart' button works correctly", async () => {
+  await inventoryPage.navigate();
+  await inventoryPage.isLoaded();
+  await inventoryPage.addItemToCart(0);
+  await expect(inventoryPage.cartCounter()).toHaveText("1");
+  await inventoryPage.clickOnCartIcon();
+  await cartPage.isLoaded();
+  await expect(cartPage.getItemDetails(0)).resolves.toBeDefined();
+});

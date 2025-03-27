@@ -42,8 +42,8 @@ test("Items should be sorted by title (Z to A)", async () => {
 });
 
 test("Cart counter should be updated after adding single item to the cart", async () => {
-    await inventoryPage.addItemToCart(0);
+  await inventoryPage.addItemToCart(0);
 
-    await expect(inventoryPage.cartCounter()).toHaveText("1");
-    await expect(inventoryPage.buttonRemove(0)).toBeVisible();
+  await expect(inventoryPage.cartCounter()).toHaveText("1");
+  await expect(inventoryPage.buttonRemove(0)).toBeVisible();
 });
